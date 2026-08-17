@@ -49,25 +49,13 @@
         <h4>Policy</h4>
         <p>Terms<br />Privacy</p>
       </div>
-      <div>
+      <div> 
         <h4>Contact</h4>
         <p>hello@artifacts.com</p>
       </div>
     </section>
   </main>
 
-  <script>
-    const animateItems = document.querySelectorAll('section, .feature-card');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    animateItems.forEach(item => observer.observe(item));
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
