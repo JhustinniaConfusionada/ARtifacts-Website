@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 const navItems = [
-  { label: 'Home', href: '#intro' },
+  { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
   { label: 'Download', href: '#download' },
@@ -48,7 +48,7 @@ function App() {
   return (
     <>
       <header className="site-header">
-        <div className="brand">ARtifacts</div>
+        <img src="src/media/AR-logo.png" alt="ARtifacts Nav Logo" className="NavLogo" />
         <nav>
           {navItems.map((item) => (
             <a key={item.label} href={item.href}>
@@ -59,11 +59,11 @@ function App() {
       </header>
 
       <main>
-        <section className="hero" id="intro">
-          <h1>ARtifacts</h1>
+        <section className="hero" id="home">
+          <img src="src/media/AR-logo_Black.png" alt="ARtifacts Logo" className="logoHeader" />
           <p>Interactive museum experiences with augmented reality and guided tours.</p>
           <a className="btn" href="#download">
-            Download App
+            Download
           </a>
         </section>
 
