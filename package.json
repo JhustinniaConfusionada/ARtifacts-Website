@@ -8,7 +8,8 @@
     "dev-expose": "vite --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview",
-    "lt": "localtunnel --port 5173"
+    "lt": "localtunnel --port 5173",
+    "dev-with-tunnel": "concurrently \"npm run dev-expose\" \"npx localtunnel --port 5173\""
   },
   "dependencies": {
     "@fontsource/poppins": "^5.3.0",
@@ -17,6 +18,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",
+    "concurrently": "^8.2.2",
     "vite": "^5.4.10"
   }
 }
