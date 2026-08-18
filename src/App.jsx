@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { setupScrollAnimation, handleDownload } from '../script.js';
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -26,23 +27,7 @@ const footerGroups = [
 
 function App() {
   useEffect(() => {
-    const animateItems = document.querySelectorAll('section, .feature-card');
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    animateItems.forEach((item) => observer.observe(item));
-
-    return () => observer.disconnect();
+    return setupScrollAnimation();
   }, []);
 
   return (
@@ -62,7 +47,7 @@ function App() {
         <section className="hero" id="home">
           <img src="src/media/AR-logo_Black.png" alt="ARtifacts Logo" className="logoHeader" />
           <p>Interactive museum experiences with augmented reality and guided tours.</p>
-          <a className="btn" href="#download">
+          <a className="btn" href="#download" onClick={(e) => { e.preventDefault(); handleDownload(); }}>
             Download
           </a>
         </section>
