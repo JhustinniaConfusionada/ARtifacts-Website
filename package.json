@@ -7,9 +7,7 @@
     "dev": "vite",
     "dev-expose": "vite --host 0.0.0.0",
     "build": "vite build",
-    "preview": "vite preview",
-    "lt": "localtunnel --port 5173",
-    "dev-with-tunnel": "concurrently \"npm run dev-expose\" \"npx localtunnel --port 5173\""
+    "preview": "vite preview"
   },
   "dependencies": {
     "@fontsource/poppins": "^5.3.0",
