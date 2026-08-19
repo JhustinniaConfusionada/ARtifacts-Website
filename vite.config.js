@@ -6,6 +6,5 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 5173,
-    // allowedHosts: ['soft-banks-switch.loca.lt','pink-teams-notice.loca.lt'],
   },
 });
