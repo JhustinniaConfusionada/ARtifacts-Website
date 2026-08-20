@@ -36,9 +36,22 @@ function App() {
         <img src="src/media/AR-logo.png" alt="ARtifacts Nav Logo" className="NavLogo" />
         <nav>
           {navItems.map((item) => (
-            <a key={item.label} href={item.href}>
-              {item.label}
-            </a>
+            item.label === 'Download' ? (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleDownload();
+                }}
+              >
+                {item.label}
+              </a>
+            ) : (
+              <a key={item.label} href={item.href}>
+                {item.label}
+              </a>
+            )
           ))}
         </nav>
       </header>
