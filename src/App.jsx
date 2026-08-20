@@ -91,7 +91,7 @@ function App() {
             </div>
             <div className="hero hero-content">
               <img src="src/media/ARtifactsLogo2.png" alt="ARtifacts Logo" className="logoHeader" />
-              <p className="textHome">*App Introduction.</p>
+              <p className="textHome">*Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
               <a className="btn" href="#download" onClick={(e) => { e.preventDefault(); handleDownload(); }}>
                 Download
               </a>
@@ -100,10 +100,10 @@ function App() {
         </section>
 
         <section className="content-block" id="about">
-          <img src="src/media/screen1.png" alt="App Preview" />
+          <img src="src/media/screenPlaceholder1.png" alt="App Preview" />
           <div className="content-block-copy">
             <h2>Project Introduction</h2>
-            <p>*App Features</p>
+            <p>*Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
         </section>
 
