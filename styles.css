@@ -12,6 +12,15 @@
   padding: 0;
 }
 
+.textHome, .footer-links {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--light);
+}
+
 .NavLogo{
   display: block;
   width: 50px;
@@ -50,6 +59,55 @@ section.in-view,
 .feature-card.in-view {
   opacity: 1;
   transform: translateY(0);
+}
+
+.homeBG {
+  width: 100%;
+  background: var(--bg);
+}
+
+.hero-section {
+  position: relative;
+  height: 180vh;
+  overflow: clip;
+}
+
+.hero-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(44, 29, 25, 0.28);
+}
+
+.hero-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1);
+  transform-origin: center;
+  will-change: transform;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: var(--light);
 }
 
 .site-header {
@@ -103,9 +161,23 @@ section.in-view,
   margin: 40px auto;
   padding: 32px;
   max-width: 860px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 32px;
   border-radius: 16px;
   box-shadow: 0 12px 24px rgba(0,0,0,.08);
-  
+}
+
+.content-block img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.content-block-copy {
+  display: grid;
+  gap: 12px;
 }
 
 .feature-grid {
@@ -117,7 +189,7 @@ section.in-view,
 }
 
 .feature-card {
-  padding: 28px;
+  padding: 36px;
   background: white;
   border-radius: 16px;
   box-shadow: 0 10px 20px rgba(0,0,0,.06);
@@ -135,5 +207,21 @@ section.in-view,
 
 .footer-links h4 {
   margin-bottom: 12px;
+}
+
+.footer-download {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .content-block {
+    grid-template-columns: 1fr;
+  }
 }
 

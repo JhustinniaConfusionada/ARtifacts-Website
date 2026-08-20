@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { setupScrollAnimation, handleDownload } from '../script.js';
+import pcmBackground from './media/pcmBackground.jpg';
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -26,8 +27,34 @@ const footerGroups = [
 ];
 
 function App() {
+  const homeSectionRef = useRef(null);
+  const homeImageRef = useRef(null);
+
   useEffect(() => {
-    return setupScrollAnimation();
+    const removeScrollAnimation = setupScrollAnimation();
+
+    const updateHomeZoom = () => {
+      const section = homeSectionRef.current;
+      const image = homeImageRef.current;
+
+      if (!section || !image) return;
+
+      const progress = Math.min(
+        1,
+        Math.max(0, -section.getBoundingClientRect().top / (section.offsetHeight - window.innerHeight))
+      );
+      image.style.transform = `scale(${1 + progress * 0.28})`;
+    };
+
+    updateHomeZoom();
+    window.addEventListener('scroll', updateHomeZoom, { passive: true });
+    window.addEventListener('resize', updateHomeZoom);
+
+    return () => {
+      removeScrollAnimation();
+      window.removeEventListener('scroll', updateHomeZoom);
+      window.removeEventListener('resize', updateHomeZoom);
+    };
   }, []);
 
   return (
@@ -56,21 +83,28 @@ function App() {
         </nav>
       </header>
 
-      <main>
-        <section className="hero" id="home">
-          <img src="src/media/AR-logo_Black.png" alt="ARtifacts Logo" className="logoHeader" />
-          <p>Interactive museum experiences with augmented reality and guided tours.</p>
-          <a className="btn" href="#download" onClick={(e) => { e.preventDefault(); handleDownload(); }}>
-            Download
-          </a>
+      <main className="homeBG" id="home">
+        <section ref={homeSectionRef} className="hero-section">
+          <div className="hero-sticky">
+            <div className="hero-background">
+              <img ref={homeImageRef} src={pcmBackground} alt="" aria-hidden="true" />
+            </div>
+            <div className="hero hero-content">
+              <img src="src/media/ARtifactsLogo2.png" alt="ARtifacts Logo" className="logoHeader" />
+              <p className="textHome">*App Introduction.</p>
+              <a className="btn" href="#download" onClick={(e) => { e.preventDefault(); handleDownload(); }}>
+                Download
+              </a>
+            </div>
+          </div>
         </section>
 
         <section className="content-block" id="about">
-          <h2>Project Introduction</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec velit egestas,
-            ullamcorper tellus nec, vehicula lorem.
-          </p>
+          <img src="src/media/screen1.png" alt="App Preview" />
+          <div className="content-block-copy">
+            <h2>Project Introduction</h2>
+            <p>*App Features</p>
+          </div>
         </section>
 
         <section className="feature-grid">
@@ -90,7 +124,11 @@ function App() {
                 {group.items.map((item, index) => (
                   <span key={`${group.heading}-${item}`}>
                     {index > 0 && <br />}
-                    {item}
+                    {item === 'Download' ? (
+                      <button type="button" className="footer-download" onClick={handleDownload}>
+                        {item}
+                      </button>
+                    ) : item}
                   </span>
                 ))}
               </p>
