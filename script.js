@@ -11,7 +11,7 @@ export const setupScrollAnimation = () => {
         }
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.5 }
   );
 
   animateItems.forEach((item) => observer.observe(item));
