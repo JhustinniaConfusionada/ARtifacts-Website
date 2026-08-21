@@ -1,8 +1,24 @@
 const footerGroups = [
-  { heading: 'Project', items: ['About', 'Download'] },
-  { heading: 'Policy', items: ['Terms', 'Privacy'] },
-  { heading: 'Group', items: ['National University - Manila', 'Members'] },
-  { heading: 'Contact', items: ['1lessthan3girls@gmail.com'] },
+  {
+    heading: 'Project',
+    items: [
+      { label: 'About', subText: 'Learn more about ARtifacts.' },
+      { label: 'Download' },
+    ],
+  },
+  {
+    heading: 'Group',
+    items: [
+      { label: 'National University - Manila', subText: 'Our academic partner.' },
+      { label: 'Members', subText: 'Meet the project team.' },
+    ],
+  },
+  {
+    heading: 'Contact',
+    items: [
+      { label: '1lessthan3girls@gmail.com', subText: 'Send us a message.' },
+    ],
+  },
 ];
 
 function Footer({ backgroundImage, onDownload }) {
@@ -16,13 +32,18 @@ function Footer({ backgroundImage, onDownload }) {
                 <h4>{group.heading}</h4>
                 <p>
                   {group.items.map((item, index) => (
-                    <span key={`${group.heading}-${item}`}>
+                    <span key={`${group.heading}-${item.label}`} className="footer-item">
                       {index > 0 && <br />}
-                      {item === 'Download' ? (
+                      {item.label === 'Download' ? (
                         <button type="button" className="footer-download" onClick={onDownload}>
-                          {item}
+                          {item.label}
                         </button>
-                      ) : item}
+                      ) : (
+                        <span className="footer-item-content">
+                          <span>{item.label}</span>
+                          <small>{item.subText}</small>
+                        </span>
+                      )}
                     </span>
                   ))}
                 </p>
