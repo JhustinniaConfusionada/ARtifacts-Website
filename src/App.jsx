@@ -1,7 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { setupScrollAnimation, handleDownload } from '../script.js';
 import pcmBackground from './media/pcmBackground.jpg';
-
+import pcmBackground2 from './media/pcmBackground_2.png';
+import pcmBackground4 from './media/pcmBackground_4.jpg';
+import mutyaPcm from './media/mutya_pcm.jpg';
+import Footer from './Footer';
 const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
@@ -18,12 +21,6 @@ const featureCards = [
     title: 'Mobile Ready',
     text: 'Designed for mobile and desktop with smooth scrolling and easy navigation.',
   },
-];
-
-const footerGroups = [
-  { heading: 'Project', items: ['About', 'Download'] },
-  { heading: 'Policy', items: ['Terms', 'Privacy'] },
-  { heading: 'Contact', items: ['hello@artifacts.com'] },
 ];
 
 function App() {
@@ -95,46 +92,37 @@ function App() {
               <a className="btn" href="#download" onClick={(e) => { e.preventDefault(); handleDownload(); }}>
                 Download
               </a>
+              
+            </div>
+          </div>
+        </section>
+       
+
+        <section className="about-background image-section" style={{ backgroundImage: `url(${pcmBackground4})` }}>
+          <div className="content-block" id="about">
+            <img src="src/media/screenPlaceholder1.png" alt="App Preview" />
+            <div className="content-block-copy">
+              <h2>Project Introduction</h2>
+              <p>*Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
           </div>
         </section>
 
-        <section className="content-block" id="about">
-          <img src="src/media/screenPlaceholder1.png" alt="App Preview" />
-          <div className="content-block-copy">
-            <h2>Project Introduction</h2>
-            <p>*Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <section className="feature-background image-section">
+          <div className="hero-background2">
+            <img src={pcmBackground2} alt="" aria-hidden="true" />
+          </div>
+          <div className="feature-grid">
+            {featureCards.map((card) => (
+              <div key={card.title} className="feature-card">
+                <h3>{card.title}</h3>
+                <p>{card.text}</p>
+              </div>
+            ))}
           </div>
         </section>
 
-        <section className="feature-grid">
-          {featureCards.map((card) => (
-            <div key={card.title} className="feature-card">
-              <h3>{card.title}</h3>
-              <p>{card.text}</p>
-            </div>
-          ))}
-        </section>
-
-        <section className="footer-links" id="contact">
-          {footerGroups.map((group) => (
-            <div key={group.heading}>
-              <h4>{group.heading}</h4>
-              <p>
-                {group.items.map((item, index) => (
-                  <span key={`${group.heading}-${item}`}>
-                    {index > 0 && <br />}
-                    {item === 'Download' ? (
-                      <button type="button" className="footer-download" onClick={handleDownload}>
-                        {item}
-                      </button>
-                    ) : item}
-                  </span>
-                ))}
-              </p>
-            </div>
-          ))}
-        </section>
+        <Footer backgroundImage={mutyaPcm} onDownload={handleDownload} />
       </main>
     </>
   );
