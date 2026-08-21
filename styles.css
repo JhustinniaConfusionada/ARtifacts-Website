@@ -275,7 +275,7 @@ section.in-view,
   padding: 36px 24px;
   font-size: large;
   text-align: right;
-  color: var(--light);
+  color: var(--dark);
 }
 
 .footer-reveal {
@@ -312,7 +312,7 @@ section.in-view,
 
 .footer-reveal-sticky .footer-links {
   width: min(420px, 100%);
-  /* background: rgba(44, 29, 25, 0.82); */
+  background: rgba(209, 205, 204, 0.656);
 }
 
 .footer-background::after {
