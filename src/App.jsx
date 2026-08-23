@@ -103,7 +103,7 @@ function App() {
             <img src="src/media/screenPlaceholder1.png" alt="App Preview" />
             <div className="content-block-copy">
               <h2>Project Introduction</h2>
-              <p>*Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p>AR-tifacts is an application that presents museum artifacts through augmented reality. Users can point a phone at a flat surface to view historical and cultural objects in three dimensions. The objects appear at true scale and can be viewed from every angle. This method allows learners, students, and history enthusiasts to study artifacts without visiting a physical museum.</p>
             </div>
           </div>
         </section>
