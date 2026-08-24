@@ -32,28 +32,39 @@ function Footer({ backgroundImage, onDownload }) {
   return (
     <section className="footer-reveal" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="footer-links" id="contact">
-        {footerGroups.map((group) => (
-          <div key={group.heading}>
-            <h4>{group.heading}</h4>
-            <p>
-              {group.items.map((item, index) => (
-                <span key={`${group.heading}-${item.label}`} className="footer-item">
-                  {index > 0 && <br />}
-                  {item.label === 'Download' ? (
-                    <button type="button" className="footer-download" onClick={onDownload}>
-                      {item.label}
-                    </button>
-                  ) : (
-                    <span className="footer-item-content">
-                      <span>{item.label}</span>
-                      <small>{item.subText}</small>
-                    </span>
-                  )}
-                </span>
-              ))}
-            </p>
-          </div>
-        ))}
+        <div className="footer-intro">
+          <h2>Footer</h2>
+          <p>Learn more about the project, the people behind it, and how to get in touch.</p>
+        </div>
+
+        <div className="footer-groups">
+          {footerGroups.map((group) => (
+            <div key={group.heading} className="footer-group">
+              <h4>{group.heading}</h4>
+              <p>
+                {group.items.map((item, index) => (
+                  <span key={`${group.heading}-${item.label}`} className="footer-item">
+                    {index > 0 && <br />}
+                    {item.label === 'Download' ? (
+                      <button type="button" className="footer-download" onClick={onDownload}>
+                        {item.label}
+                      </button>
+                    ) : (
+                      <span className="footer-item-content">
+                        <span>{item.label}</span>
+                        <small>{item.subText}</small>
+                      </span>
+                    )}
+                  </span>
+                ))}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="footer-credits">
+          Made with care by 1lessThan3Girls. Licensed under the MIT License.
+        </div>
       </div>
     </section>
   );
